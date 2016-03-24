@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templateSet group="Drupal">
+  <template name="efq" value="$query = new EntityFieldQuery();&#10;&#10;$query-&gt;entityCondition('entity_type', 'node')&#10;  -&gt;entityCondition('bundle', 'article')&#10;  -&gt;propertyCondition('status', NODE_PUBLISHED)&#10;  -&gt;fieldCondition('field_news_types', 'value', 'spotlight', '=')&#10;  -&gt;fieldOrderBy('field_photo', 'fid', 'DESC')&#10;  -&gt;range(0, 10)&#10;  -&gt;addMetaData('account', user_load(1));&#10;&#10;$result = $query-&gt;execute();&#10;&#10;if (isset($result['node'])) {&#10;  $news_items_nids = array_keys($result['node']);&#10;}" description="Entity Field Query" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="menupage" value="$items['page/url'] = array(&#10;    'title callback' =&gt; '_title_callback',&#10;    'title arguments' =&gt; array('title argument'),&#10;    'description' =&gt; 'The page description.',&#10;    'page callback' =&gt; '_page_callback_function',&#10;    'page arguments' =&gt; array('page argument'),&#10;    'access callback' =&gt; '_access_callback_function',&#10;    'access arguments' =&gt; array('administer site configuration'),&#10;    'type' =&gt; MENU_CALLBACK,&#10;    'weight' =&gt; 10,&#10;    'file' =&gt; 'includes/module.inc',&#10; );" description="Hook menu item for a page" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="menuform" value="$items['page/url'] = array(&#10;    'title' =&gt; 'My Custom Form',&#10;    'description' =&gt; 'The page description.',&#10;    'page callback' =&gt; 'drupal_get_form',&#10;    'page arguments' =&gt; array('_form_function'),&#10;    'access callback' =&gt; '_access_callback_function',&#10;    'access arguments' =&gt; array('access my module'),&#10;    'type' =&gt; MENU_NORMAL_ITEM,&#10;    'weight' =&gt; 10,&#10;    'file' =&gt; 'includes/module.inc',&#10; );" description="Hook menu item for a form" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+</templateSet>
+
